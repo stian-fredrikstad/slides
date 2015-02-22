@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
 <%= form_tag users_path, method: :get do |f| %>
-<%= text_field_tag :q, params[:q] %>
+<input type="text" placeholder="query" name="q" value="<%= params["q"].html_safe %>"/>
 <%= submit_tag :search %>
 <% end %>
 <table>
@@ -10,7 +10,7 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user['name'] %></td>
+    <td><%= user['name'].html_safe %></td>
   </tr>
 <% end %>
 </table>
