@@ -102,7 +102,7 @@ URL: https://code.google.com/p/io-2012-slides
         <article>
             <ul>
                 <li>Fuzzy sikkerhet</li>
-				<li>Baserer seg på at objekter er sikret så lenge de ikke listes opp til brukeren</li>
+				<li>Baserer seg på at objekter er sikret så lenge refereransene er "hemmelige"</li>
 				<li>Hvis brukeren vet referansen, så kan han besøke siden uten autentisering</li>
             </ul>
         </article>
@@ -127,7 +127,10 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
         <article>
             <ul>
-                <li>Lorem</li>
+                <li>Data blir eksponert ukrypert</li>
+				<li>Sensitive data blir lagret uten/utdatert kryptering</li>
+				<li>Api som er for verbost</li>
+				<li>Mangler headere f.eks. secure flag på cookie</li>
             </ul>
         </article>
     </slide>
@@ -138,7 +141,8 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
         <article>
             <ul>
-                <li>Lorem</li>
+                <li>Manglende autorisering</li>
+				<li>F.eks. administrasjonsgrensesnitt</li>
             </ul>
         </article>
     </slide>
@@ -149,7 +153,8 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
         <article>
             <ul>
-                <li>Lorem</li>
+                <li>Manglende sjekk av at brukeren faktisk gjorde requestet</li>
+				<li>Sjekkes ved å ha f.eks. et unikt token som er generert til brukeren</li>
             </ul>
         </article>
     </slide>
@@ -160,7 +165,8 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
         <article>
             <ul>
-                <li>Lorem</li>
+                <li>Bruker sårbare plugins eller rammeverk</li>
+				<li>Kan minske risikoen ved å bruke en dependency check</li>
             </ul>
         </article>
     </slide>
@@ -171,7 +177,11 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
         <article>
             <ul>
-                <li>Lorem</li>
+                <li>Brukerstyrt redirect</li>
+				<li>Redirects bør whitelistes mot f.eks. domene</li>
+				<li>Brukere har blitt lært opp til å stole på f.eks. at https://www.bank.no er trygt</li>
+				<li>Hva hvis funksjonen https://www.bank.no/redirect?where=http://www.evil.com finnes?</li>
+				<li>Veldig effektivt phising angrep</li>
             </ul>
         </article>
     </slide>
