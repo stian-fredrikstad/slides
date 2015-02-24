@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	protect_from_forgery with: :exception
+  before_filter :authorize, only: :index
   # GET /users
   # GET /users.json
   def index

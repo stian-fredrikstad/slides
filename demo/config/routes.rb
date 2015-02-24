@@ -1,5 +1,9 @@
 Demo::Application.routes.draw do
+  get 'session/login'
+  post 'session/create'
+  get 'session/logout'
   resources :users
+  root :to => 'session#login'
 
 
   # The priority is based upon order of creation:
