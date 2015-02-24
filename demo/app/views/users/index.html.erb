@@ -1,6 +1,6 @@
 <h1>Listing users</h1>
 <%= form_tag users_path, method: :get do |f| %>
-<input type="text" placeholder="query" name="q" value="<%= params["q"].html_safe %>"/>
+<input type="text" placeholder="query" name="q" value="<%= params["q"] && params["q"].html_safe %>"/>
 <%= submit_tag :search %>
 <% end %>
 <table>

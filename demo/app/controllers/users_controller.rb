@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
+	protect_from_forgery with: :exception
   # GET /users
   # GET /users.json
   def index
     sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
     @users = ActiveRecord::Base.connection.exec_query(sql)
-    p sql
-    p @users
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new(new_user_params)
 
     respond_to do |format|
       if @user.save
@@ -81,5 +81,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
-  end
+	end
+
+	private
+
+	def new_user_params
+		params.require(:user).permit(:name, :password)
+	end
 end
