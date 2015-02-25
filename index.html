@@ -163,6 +163,7 @@ URL: https://code.google.com/p/io-2012-slides
             <ul>
                 <li>Manglende sjekk av at brukeren faktisk gjorde requestet</li>
 				<li>Sjekkes ved å ha f.eks. et unikt token som er generert til brukeren</li>
+				<li>Kan ikke alltid stole på innebygd støtte, f.eks. Rails sjekker ikke csrf token i get request</li>
             </ul>
         </article>
     </slide>
@@ -175,6 +176,7 @@ URL: https://code.google.com/p/io-2012-slides
             <ul>
                 <li>Bruker sårbare plugins eller rammeverk</li>
 				<li>Kan minske risikoen ved å bruke en dependency check</li>
+				<li>Et relativt stort problem for store veldig mange nettsider some "bare" kjører</li>
             </ul>
         </article>
     </slide>

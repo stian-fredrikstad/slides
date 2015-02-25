@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :set_headers
+  protect_from_forgery with: :exception
 
   def set_headers
     response.headers["X-XSS-Protection"] = "0; mode=block"

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	protect_from_forgery with: :exception
+  skip_before_filter :verify_authenticity_token
   before_filter :authorize, only: [:index, :create, :new]
   # GET /users
   # GET /users.json
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(new_user_params)
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to users_path, status: 303 }
       format.json { head :no_content }
     end
 	end
