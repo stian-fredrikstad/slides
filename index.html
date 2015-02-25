@@ -71,6 +71,7 @@ URL: https://code.google.com/p/io-2012-slides
                 <li>Passord i klartekst (lagring og overføring)</li>
 				<li>Session fixation</li>
 				<li>Lang eller manglende timeout på sessions</li>
+				<li><a href="http://localhost:3000/session/login">DEMO</a></li>
             </ul>
         </article>
     </slide>
@@ -92,6 +93,10 @@ URL: https://code.google.com/p/io-2012-slides
 				<li>Reflected XSS</li>
 				<li>DOM Based XSS</li>
             </ul>
+			<br />
+			<ul>
+				<li>X-XSS-Protection - Vanligvis default satt, hindrer bl.a. noe reflected XSS</li>
+			</ul>
         </article>
     </slide>
 	
@@ -102,8 +107,9 @@ URL: https://code.google.com/p/io-2012-slides
         <article>
             <ul>
                 <li>Fuzzy sikkerhet</li>
-				<li>Baserer seg på at objekter er sikret så lenge refereransene er "hemmelige"</li>
-				<li>Hvis brukeren vet referansen, så kan han besøke siden uten autentisering</li>
+				<li>Hvis en angriper vet referansen til objektet, så kan han besøke siden uten autentisering</li>
+				<li>Forekommer særlig horisontalt</li>
+				<li><a href="http://localhost:3000/users/4">DEMO</a></li>
             </ul>
         </article>
     </slide>
@@ -117,6 +123,7 @@ URL: https://code.google.com/p/io-2012-slides
                 <li>Default passord</li>
 				<li>Feilhåndtering med stacktrace</li>
 				<li>Utdatert rammeverk/plugins med kjente (og ukjente) sårbarheter</li>
+				<li><a href="http://localhost:3000/foo">DEMO</a></li>
             </ul>
         </article>
     </slide>
@@ -143,6 +150,7 @@ URL: https://code.google.com/p/io-2012-slides
             <ul>
                 <li>Manglende autorisering</li>
 				<li>F.eks. administrasjonsgrensesnitt</li>
+				<li>"Easter eggs"</li>
             </ul>
         </article>
     </slide>
