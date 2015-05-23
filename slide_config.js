@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'OWASP Top 10',
+    title: 'Intro til SAML 2.0',
     subtitle: '',
     //eventInfo: {
     //  title: 'Google I/O',
