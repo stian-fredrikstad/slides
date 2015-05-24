@@ -42,23 +42,149 @@ URL: https://code.google.com/p/io-2012-slides
 
     <slide>
         <hgroup>
-            <h2>A1</h2>
+            <h2>SAMLRequest</h2>
         </hgroup>
         <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
+            <pre class="prettyprint" data-lang="samlrequest">
+&lt;samlp:AuthnRequest xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot; 
+    ID=&quot;_bec424fa5103428909a30ff1e31168327f79474984&quot; Version=&quot;2.0&quot; 
+    IssueInstant=&quot;2007-12-10T11:39:34Z&quot; ForceAuthn=&quot;false&quot; IsPassive=&quot;false&quot; 
+    ProtocolBinding=&quot;urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST&quot; 
+    AssertionConsumerServiceURL=&quot;http://...;&gt;
+    &lt;saml:Issuer xmlns:saml=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;&gt;
+        urn:mace:feide.no:services:no.feide.moodle
+    &lt;/saml:Issuer&gt;
+    &lt;samlp:NameIDPolicy xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot; 
+        Format=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&quot; 
+        SPNameQualifier=&quot;moodle.bridge.feide.no&quot; AllowCreate=&quot;true&quot; /&gt;
+    &lt;samlp:RequestedAuthnContext xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot; 
+        Comparison=&quot;exact&quot;&gt;
+        &lt;saml:AuthnContextClassRef xmlns:saml=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;&gt;
+            urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+        &lt;/saml:AuthnContextClassRef&gt;
+    &lt;/samlp:RequestedAuthnContext&gt;
+&lt;/samlp:AuthnRequest&gt;
+			</pre>
         </article>
     </slide>
 	
 	<slide>
         <hgroup>
-            <h2>A2</h2>
+            <h2>SAMLResponse</h2>
         </hgroup>
         <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
+            <pre class="prettyprint" data-lang="samlresponse">
+&lt;samlp:Response xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot; 
+    ID=&quot;s2a0da3504aff978b0f8c80f6a62c713c4a2f64c5b&quot; 
+    InResponseTo=&quot;_bec424fa5103428909a30ff1e31168327f79474984&quot; Version=&quot;2.0&quot; 
+    IssueInstant=&quot;2007-12-10T11:39:48Z&quot; Destination=&quot;http://...&quot;&gt;
+    &lt;saml:Issuer xmlns:saml=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;&gt;
+        max.feide.no
+    &lt;/saml:Issuer&gt;
+    &lt;samlp:Status xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot;&gt;
+        &lt;samlp:StatusCode xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot; 
+            Value=&quot;urn:oasis:names:tc:SAML:2.0:status:Success&quot;&gt;
+        &lt;/samlp:StatusCode&gt;
+    &lt;/samlp:Status&gt;
+    &lt;saml:Assertion xmlns:saml=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot; Version=&quot;2.0&quot; 
+        ID=&quot;s2b7afe8e21a0910d027dfbc94ec4b862e1fbbd9ab&quot; IssueInstant=&quot;2007-12-10T11:39:48Z&quot;&gt;
+        &lt;saml:Issuer&gt;
+            max.feide.no
+        &lt;/saml:Issuer&gt;
+			</pre>
+		</article>
+	</slide>
+	<slide>
+		<article>
+			<pre class="prettyprint" data-lang="samlresponse">
+        &lt;Signature xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+            &lt;SignedInfo&gt;
+                &lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/2001/10/xml-exc-c14n#&quot; /&gt;
+                &lt;SignatureMethod Algorithm=&quot;http://www.w3.org/2000/09/xmldsig#rsa-sha1&quot; /&gt;
+                &lt;Reference URI=&quot;#s2b7afe8e21a0910d027dfbc94ec4b862e1fbbd9ab&quot;&gt;
+                    &lt;Transforms&gt;
+                        &lt;Transform 
+                            Algorithm=&quot;http://www.w3.org/2000/09/xmldsig#enveloped-signature&quot;/&gt;
+                        &lt;Transform Algorithm=&quot;http://www.w3.org/2001/10/xml-exc-c14n#&quot; /&gt;
+                    &lt;/Transforms&gt;
+                    &lt;DigestMethod Algorithm=&quot;http://www.w3.org/2000/09/xmldsig#sha1&quot; /&gt;
+                    &lt;DigestValue&gt;
+                        k7z/t3iPKiyY9P7B87FIsMxnlnk=
+                    &lt;/DigestValue&gt;
+                &lt;/Reference&gt;
+            &lt;/SignedInfo&gt;
+            &lt;SignatureValue&gt;
+                KvUrzGcwGsu8WMNogIRfAxxWlO4uKXhJrouOYaadkzUHvz1xbVURH35si6U8084utNAjXTjZyxfj 
+                qurEX7VgCw6Xn7Fxn4nJxD6FOP5x/iRk8KqCufipRNHwICq/VufqPkrP7sVLdymJyZ2Cu5QrEU23 
+                qaIzjFf84Kfp4LVnlJY= 
+            &lt;/SignatureValue&gt;
+			</pre>
+		</article>
+	</slide>
+	<slide>
+		<article>
+			<pre class="prettyprint" data-lang="samlresponse">
+            &lt;KeyInfo&gt;
+                &lt;X509Data&gt;
+                    &lt;X509Certificate&gt;
+                        MIIB/jCCAWcCBEbzjNswDQYJKoZIhvcNAQEFBQAwRjELMAkGA1UEBhMCTk8xEDAO
+                        hcNMDcwOTIxMDky MDI3WhcNMDcxMjIwMDkyMDI3WjBGMQswCQYDVQQGEwJOTzEQ
+                        ...
+                    &lt;/X509Certificate&gt;
+                &lt;/X509Data&gt;
+            &lt;/KeyInfo&gt;
+        &lt;/Signature&gt;
+			</pre>
+		</article>
+	</slide>
+	<slide>
+		<article>
+			<pre class="prettyprint" data-lang="samlresponse">
+        &lt;saml:Subject&gt;
+            &lt;saml:NameID NameQualifier=&quot;max.feide.no&quot; 
+                SPNameQualifier=&quot;urn:mace:feide.no:services:no.feide.moodle&quot; 
+                Format=&quot;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&quot;&gt;
+                UB/WJAaKAPrSHbqlbcKWu7JktcKY
+            &lt;/saml:NameID&gt;
+            &lt;saml:SubjectConfirmation Method=&quot;urn:oasis:names:tc:SAML:2.0:cm:bearer&quot;&gt;
+                &lt;saml:SubjectConfirmationData NotOnOrAfter=&quot;2007-12-10T19:39:48Z&quot; 
+                InResponseTo=&quot;_bec424fa5103428909a30ff1e31168327f79474984&quot; 
+                Recipient=&quot;http://...&quot;&gt;
+                &lt;/saml:SubjectConfirmationData&gt;
+            &lt;/saml:SubjectConfirmation&gt;
+        &lt;/saml:Subject&gt;
+        &lt;saml:Conditions NotBefore=&quot;2007-12-10T11:29:48Z&quot; 
+            NotOnOrAfter=&quot;2007-12-10T19:39:48Z&quot;&gt;
+            &lt;saml:AudienceRestriction&gt;
+                &lt;saml:Audience&gt;
+                    urn:mace:feide.no:services:no.feide.moodle
+                &lt;/saml:Audience&gt;
+            &lt;/saml:AudienceRestriction&gt;
+        &lt;/saml:Conditions&gt;
+			</pre>
+		</article>
+	</slide>
+	<slide>
+		<article>
+			<pre class="prettyprint" data-lang="samlresponse">
+        &lt;saml:AuthnStatement AuthnInstant=&quot;2007-12-10T11:39:48Z&quot; 
+            SessionIndex=&quot;s259fad9cad0cf7d2b3b68f42b17d0cfa6668e0201&quot;&gt;
+            &lt;saml:AuthnContext&gt;
+                &lt;saml:AuthnContextClassRef&gt;
+                    urn:oasis:names:tc:SAML:2.0:ac:classes:Password
+                &lt;/saml:AuthnContextClassRef&gt;
+            &lt;/saml:AuthnContext&gt;
+        &lt;/saml:AuthnStatement&gt;
+        &lt;saml:AttributeStatement&gt;
+            &lt;saml:Attribute Name=&quot;foo&quot;&gt;
+                &lt;saml:AttributeValue xmlns:saml=&quot;urn:oasis:foo:tc:SAML:2.0:assertion&quot;&gt;
+                    bar
+                &lt;/saml:AttributeValue&gt;
+            &lt;/saml:Attribute&gt;
+        &lt;/saml:AttributeStatement&gt;
+    &lt;/saml:Assertion&gt;
+&lt;/samlp:Response&gt;
+			</pre>
         </article>
     </slide>
 	
