@@ -40,6 +40,51 @@ URL: https://code.google.com/p/io-2012-slides
 		</hgroup>
 	</slide>
 
+	<slide>
+        <hgroup>
+            <h2>SAML</h2>
+        </hgroup>
+        <article>
+            <ul>
+                <li>Forkortelse for Security Assertion Markup Language</li>
+				<li>Baserer seg på konseptene om service providers (SP) og Identity providers (IdP)</li>
+				<li>1.0 ble en standard i 2002</li>
+				<li>2.0 ble en standard i 2005</li>
+				<li>I de store trekk en beskrivelse av flyt og en samling av xml verktøy</li>
+            </ul>
+        </article>
+    </slide>
+	
+	<slide>
+        <hgroup>
+            <h2>Flyt SAML 1.0</h2>
+        </hgroup>
+        <article>
+            <ul>
+                <li>Bruker vil logge inn i banken (SP) via BankID (IdP)</li>
+				<li>Brukeren går inn på http://banken.no</li>
+				<li>Der får han en link til <a href="https://preprod.signicat.com/std/method/shared?id=nbid:demo:no&target=http%3A%2F%2Fbanken.no%2Fauth%2Fverify">https://preprod.signicat.com/std/method/shared?id=nbid:demo:no&target=http%3A%2F%2Fbanken.no%2Fauth%2Fverify</a></li>
+				<li>Når brukeren logger inn vil han sendes tilbake med et POST request til http://banken.no/auth/verify</li>
+				<li>POST requestet inneholder da en SAMLRepsonse som SP kan tolke</li>
+            </ul>
+        </article>
+    </slide>
+	
+	<slide>
+        <hgroup>
+            <h2>Flyt SAML 2.0</h2>
+        </hgroup>
+        <article>
+            <ul>
+				<li>Brukeren går inn på http://banken.no</li>
+				<li>Der får han en link til http://banken.no/login</li>
+				<li>Når han klikker på den vil SP generere et SAMLRequest og deretter sende brukeren videre til IdP med dette som f.eks. et GET parameter</li>
+				<li>Når brukeren logger inn vil han sendes tilbake med et POST request til urlen definert i SAMLRequestet</li>
+				<li>POST requestet inneholder da en SAMLRepsonse med referanse til requestet som SP kan tolke</li>
+            </ul>
+        </article>
+    </slide>
+	
     <slide>
         <hgroup>
             <h2>SAMLRequest</h2>
@@ -185,94 +230,6 @@ URL: https://code.google.com/p/io-2012-slides
     &lt;/saml:Assertion&gt;
 &lt;/samlp:Response&gt;
 			</pre>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A3</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A4</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A5</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A6</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A7</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A8</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A9</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A10</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Lorem</li>
-            </ul>
         </article>
     </slide>
 	
