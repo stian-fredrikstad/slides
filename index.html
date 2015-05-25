@@ -55,37 +55,16 @@ URL: https://code.google.com/p/io-2012-slides
         </article>
     </slide>
 	
-	<slide>
-        <hgroup>
-            <h2>Flyt SAML 1.0</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Bruker vil logge inn i banken (SP) via BankID (IdP)</li>
-				<li>Brukeren går inn på http://banken.no</li>
-				<li>Der får han en link til <a href="https://preprod.signicat.com/std/method/shared?id=nbid:demo:no&target=http%3A%2F%2Fbanken.no%2Fauth%2Fverify">https://preprod.signicat.com/std/method/shared?id=nbid:demo:no&target=http%3A%2F%2Fbanken.no%2Fauth%2Fverify</a></li>
-				<li>Når brukeren logger inn vil han sendes tilbake med et POST request til http://banken.no/auth/verify</li>
-				<li>POST requestet inneholder da en SAMLRepsonse som SP kan tolke</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>Flyt SAML 2.0</h2>
-        </hgroup>
-        <article>
-            <ul>
-				<li>Brukeren går inn på http://banken.no</li>
-				<li>Der får han en link til http://banken.no/login</li>
-				<li>Når han klikker på den vil SP generere et SAMLRequest og deretter sende brukeren videre til IdP med dette som f.eks. et GET parameter</li>
-				<li>Når brukeren logger inn vil han sendes tilbake med et POST request til urlen definert i SAMLRequestet</li>
-				<li>POST requestet inneholder da en SAMLRepsonse med referanse til requestet som SP kan tolke</li>
-            </ul>
-        </article>
-    </slide>
-	
     <slide>
+		<aside class="note">
+		  <section>
+			<ul>
+			  <li>HTTP POST Binding</li>
+			  <li>Issuer er SP som utsteder requestet, evt en samling av SP</li>
+			  <li>Viktig at IdP aktivt sjekker dette slik at den ikke utsteder Response til en hvilken som helst side og gir bort data om brukeren</li>
+			</ul>
+		  </section>
+		</aside>
         <hgroup>
             <h2>SAMLRequest</h2>
         </hgroup>
@@ -114,6 +93,14 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
 	
 	<slide>
+		<aside class="note">
+		  <section>
+			<ul>
+			  <li>Assertion inneholder informasjonen vi vil se på</li>
+			  <li>Kan ikke stole på dataene utenfor assertion, ettersom de ikke er signert</li>
+			</ul>
+		  </section>
+		</aside>
         <hgroup>
             <h2>SAMLResponse</h2>
         </hgroup>
@@ -139,7 +126,16 @@ URL: https://code.google.com/p/io-2012-slides
 			</pre>
 		</article>
 	</slide>
+	
 	<slide>
+		<aside class="note">
+		  <section>
+			<ul>
+			  <li>Siganturelementet er en del av en xml standard</li>
+			  <li>Beskriver hvordan xmlen skal organiseres for å beregne digest og videre signatur, kan inneholde sertifikat</li>
+			</ul>
+		  </section>
+		</aside>
 		<article>
 			<pre class="prettyprint" data-lang="samlresponse">
         &lt;Signature xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
@@ -183,6 +179,14 @@ URL: https://code.google.com/p/io-2012-slides
 		</article>
 	</slide>
 	<slide>
+		<aside class="note">
+		  <section>
+			<ul>
+			  <li>Subject beskriver hvem som er mottaker og hvilket request det hører til</li>
+			  <li>Conditions beskriver hva som må være oppfylt for at responsen skal være gyldig</li>
+			</ul>
+		  </section>
+		</aside>
 		<article>
 			<pre class="prettyprint" data-lang="samlresponse">
         &lt;saml:Subject&gt;
@@ -210,6 +214,14 @@ URL: https://code.google.com/p/io-2012-slides
 		</article>
 	</slide>
 	<slide>
+		<aside class="note">
+		  <section>
+			<ul>
+			  <li>AuthnStatement beskriver hvordan brukeren ble logget inn (tror jeg)</li>
+			  <li>AttributeStatement beskriver diverse attributes som er knyttet til brukeren</li>
+			</ul>
+		  </section>
+		</aside>
 		<article>
 			<pre class="prettyprint" data-lang="samlresponse">
         &lt;saml:AuthnStatement AuthnInstant=&quot;2007-12-10T11:39:48Z&quot; 
