@@ -8,6 +8,7 @@ URL: https://code.google.com/p/io-2012-slides
 -->
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
 	<meta charset="utf-8">
@@ -24,210 +25,254 @@ URL: https://code.google.com/p/io-2012-slides
 	<!-- This amazingness opens all links in a new tab. -->
 	<script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
 </head>
+
 <body style="opacity: 0">
 
-<slides class="layout-widescreen">
+	<slides class="layout-widescreen">
 
-	<slide class="title-slide segue nobackground">
-		<aside class="gdbar"><img src="images/BEKK_logo.png"></aside>
-		<!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
-		<hgroup class="auto-fadein">
-			<h1 data-config-title><!-- populated from slide_config.json --></h1>
+		<slide class="title-slide segue nobackground">
+			<aside class="gdbar"><img src="images/BEKK_logo.png"></aside>
+			<!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+			<hgroup class="auto-fadein">
+				<h1 data-config-title><!-- populated from slide_config.json --></h1>
 
-			<h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+				<h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
 
-			<p data-config-presenter><!-- populated from slide_config.json --></p>
-		</hgroup>
-	</slide>
+				<p data-config-presenter>
+					<!-- populated from slide_config.json -->
+				</p>
+			</hgroup>
+		</slide>
 
-    <slide>
-		<aside class="note">
-			<section>
+		<slide>
+			<hgroup>
+				<h2>OWASP Top 10 - 2013</h2>
+			</hgroup>
+			<article>
 				<ul>
-					<li>' UNION SELECT printf('%s - %s', name, password) as name FROM users--</li>
+					<li>A1 – Injection A1 – Injection</li>
+					<li>A2 – Broken Authentication and Session Management</li>
+					<li>A3 – Cross-Site Scripting (XSS)</li>
+					<li>A4 – Insecure Direct Object References</li>
+					<li>A5 – Security Misconfiguration</li>
+					<li>A6 – Sensitive Data Exposure</li>
+					<li>A7 – Missing Function Level Access Control</li>
+					<li>A8 – Cross-Site Request Forgery (CSRF)</li>
+					<li>A9 – Using Components with Known Vulnerabilities</li>
+					<li>A10 – Unvalidated Redirects and Forwards</li>
 				</ul>
-			</section>
-		</aside>
-        <hgroup>
-            <h2>A1 - Injection</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>SQL</li>
-				<li>LDAP</li>
-				<li>XML</li>
-				<li>Generelt injection i forskjellige språk/markup</li>
-				<li><a href="http://localhost:3000/users" targe="_blank">DEMO</a></li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A2 - Broken Authentication and Session Management</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Passord i klartekst (lagring og overføring)</li>
-				<li>Session fixation</li>
-				<li>Lang eller manglende timeout på sessions</li>
-				<li><a href="http://localhost:3000/session/login">DEMO</a></li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-		<aside class="note">
-			<section>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
+				<h2>OWASP Top 10 - 2017 RC1</h2>
+			</hgroup>
+			<article>
 				<ul>
-					<li>"/&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;foo id="</li>
+					<li>A1 – Injection A1 – Injection</li>
+					<li>A2 – Broken Authentication and Session Management</li>
+					<li>A3 – Cross-Site Scripting (XSS)</li>
+					<li>A4 – Broken Access Control (Original category in 2003/2004)</li>
+					<li>A5 – Security Misconfiguration</li>
+					<li>A6 – Sensitive Data Exposure</li>
+					<li>A7 – Insufficient Attack Protection (NEW)</li>
+					<li>A8 – Cross-Site Request Forgery (CSRF)</li>
+					<li>A9 – Using Components with Known Vulnerabilities</li>
+					<li>A10 – Underprotected APIs (NEW)</li>
 				</ul>
-			</section>
-		</aside>
-        <hgroup>
-            <h2>A3 - Cross-Site Scripting (XSS)</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Stored XSS</li>
-				<li>Reflected XSS</li>
-				<li>DOM Based XSS</li>
-            </ul>
-			<br />
-			<ul>
-				<li>X-XSS-Protection - Vanligvis default satt, hindrer bl.a. noe reflected XSS</li>
-			</ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A4 - Insecure Direct Object References</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Fuzzy sikkerhet</li>
-				<li>Hvis en angriper vet referansen til objektet, så kan han besøke siden uten autentisering</li>
-				<li>Forekommer særlig horisontalt</li>
-				<li><a href="http://localhost:3000/users/4">DEMO</a></li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A5 - Security Misconfiguration</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Default passord</li>
-				<li>Feilhåndtering med stacktrace</li>
-				<li>Utdatert rammeverk/plugins med kjente (og ukjente) sårbarheter</li>
-				<li><a href="http://localhost:3000/foo">DEMO</a></li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A6 - Sensitive Data Exposure</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Data blir eksponert ukrypert</li>
-				<li>Sensitive data blir lagret uten/utdatert kryptering</li>
-				<li>Api som er for verbost</li>
-				<li>Mangler headere f.eks. secure flag på cookie</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A7 - Missing Function Level Access Control</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Manglende autorisering</li>
-				<li>F.eks. administrasjonsgrensesnitt</li>
-				<li>"Easter eggs"</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A8 - Cross-Site Request Forgery (CSRF)</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Manglende sjekk av at brukeren faktisk gjorde requestet</li>
-				<li>Sjekkes ved å ha f.eks. et unikt token som er generert til brukeren</li>
-				<li>Kan ikke alltid stole på innebygd støtte, f.eks. Rails sjekker ikke csrf token i get request</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A9 - Using Known Vulnerable Components</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Bruker sårbare plugins eller rammeverk</li>
-				<li>Kan minske risikoen ved å bruke en dependency check</li>
-				<li>Et relativt stort problem for store veldig mange nettsider some "bare" kjører</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide>
-        <hgroup>
-            <h2>A10 - Unvalidated Redirects and Forwards</h2>
-        </hgroup>
-        <article>
-            <ul>
-                <li>Brukerstyrt redirect</li>
-				<li>Redirects bør whitelistes mot f.eks. domene</li>
-				<li>Brukere har blitt lært opp til å stole på f.eks. at https://www.bank.no er trygt</li>
-				<li>Hva hvis funksjonen https://www.bank.no/redirect?where=http://www.evil.com finnes?</li>
-				<li>Veldig effektivt phising angrep</li>
-            </ul>
-        </article>
-    </slide>
-	
-	<slide class="thank-you-slide segue nobackground">
-		<aside class="gdbar right"><img src="images/BEKK_logo.png"></aside>
-		<article class="flexbox vleft auto-fadein">
-			
-		</article>
-		<p class="auto-fadein" data-config-contact>
-			<!-- populated from slide_config.json -->
-		</p>
-	</slide>
+			</article>
+		</slide>
 
-	<slide class="backdrop"></slide>
+		<slide>
+			<aside class="note">
+				<section>
+					<ul>
+						<li>' UNION SELECT printf('%s - %s', name, password) as name FROM users--</li>
+					</ul>
+				</section>
+			</aside>
+			<hgroup>
+				<h2>A1 - Injection</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>SQL</li>
+					<li>LDAP</li>
+					<li>XML</li>
+					<li>Generelt injection i forskjellige språk/markup</li>
+					<li><a href="http://localhost:3000/users" targe="_blank">DEMO</a></li>
+				</ul>
+			</article>
+		</slide>
 
-</slides>
+		<slide>
+			<hgroup>
+				<h2>A2 - Broken Authentication and Session Management</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Passord i klartekst (lagring og overføring)</li>
+					<li>Session fixation</li>
+					<li>Lang eller manglende timeout på sessions</li>
+					<li><a href="http://localhost:3000/session/login">DEMO</a></li>
+				</ul>
+			</article>
+		</slide>
 
-<script>
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
-	_gaq.push(['_trackPageview']);
+		<slide>
+			<aside class="note">
+				<section>
+					<ul>
+						<li>"/&gt;&lt;script&gt;alert(1);&lt;/script&gt;&lt;foo id="</li>
+					</ul>
+				</section>
+			</aside>
+			<hgroup>
+				<h2>A3 - Cross-Site Scripting (XSS)</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Stored XSS</li>
+					<li>Reflected XSS</li>
+					<li>DOM Based XSS</li>
+				</ul>
+				<br />
+				<ul>
+					<li>X-XSS-Protection - Vanligvis default satt, hindrer bl.a. noe reflected XSS</li>
+				</ul>
+			</article>
+		</slide>
 
-	(function () {
-		var ga = document.createElement('script');
-		ga.type = 'text/javascript';
-		ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(ga, s);
-	})();
-</script>
+		<slide>
+			<hgroup>
+				<h2>A4 - Insecure Direct Object References</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Fuzzy sikkerhet</li>
+					<li>Hvis en angriper vet referansen til objektet, så kan han besøke siden uten autentisering</li>
+					<li>Forekommer særlig horisontalt</li>
+					<li><a href="http://localhost:3000/users/4">DEMO</a></li>
+				</ul>
+			</article>
+		</slide>
 
-<!--[if IE]>
+		<slide>
+			<hgroup>
+				<h2>A5 - Security Misconfiguration</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Default passord</li>
+					<li>Feilhåndtering med stacktrace</li>
+					<li>Utdatert rammeverk/plugins med kjente (og ukjente) sårbarheter</li>
+					<li><a href="http://localhost:3000/foo">DEMO</a></li>
+				</ul>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
+				<h2>A6 - Sensitive Data Exposure</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Data blir eksponert ukrypert</li>
+					<li>Sensitive data blir lagret uten/utdatert kryptering</li>
+					<li>Api som er for verbost</li>
+					<li>Mangler headere f.eks. secure flag på cookie</li>
+				</ul>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
+				<h2>A7 - Missing Function Level Access Control</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Manglende autorisering</li>
+					<li>F.eks. administrasjonsgrensesnitt</li>
+					<li>"Easter eggs"</li>
+				</ul>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
+				<h2>A8 - Cross-Site Request Forgery (CSRF)</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Manglende sjekk av at brukeren faktisk gjorde requestet</li>
+					<li>Sjekkes ved å ha f.eks. et unikt token som er generert til brukeren</li>
+					<li>Kan ikke alltid stole på innebygd støtte, f.eks. Rails sjekker ikke csrf token i get request</li>
+				</ul>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
+				<h2>A9 - Using Known Vulnerable Components</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Bruker sårbare plugins eller rammeverk</li>
+					<li>Kan minske risikoen ved å bruke en dependency check</li>
+					<li>Et relativt stort problem for store veldig mange nettsider some "bare" kjører</li>
+				</ul>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
+				<h2>A10 - Unvalidated Redirects and Forwards</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Brukerstyrt redirect</li>
+					<li>Redirects bør whitelistes mot f.eks. domene</li>
+					<li>Brukere har blitt lært opp til å stole på f.eks. at https://www.bank.no er trygt</li>
+					<li>Hva hvis funksjonen https://www.bank.no/redirect?where=http://www.evil.com finnes?</li>
+					<li>Veldig effektivt phising angrep</li>
+				</ul>
+			</article>
+		</slide>
+
+		<slide class="thank-you-slide segue nobackground">
+			<aside class="gdbar right"><img src="images/BEKK_logo.png"></aside>
+			<article class="flexbox vleft auto-fadein">
+
+			</article>
+			<p class="auto-fadein" data-config-contact>
+				<!-- populated from slide_config.json -->
+			</p>
+		</slide>
+
+		<slide class="backdrop"></slide>
+
+	</slides>
+
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+	<!--[if IE]>
 <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
 <script>CFInstall.check({mode: 'overlay'});</script>
 <![endif]-->
 </body>
+
 </html>
