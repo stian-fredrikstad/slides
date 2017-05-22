@@ -98,12 +98,16 @@ URL: https://code.google.com/p/io-2012-slides
 			</hgroup>
 			<article>
 				<ul>
-					<li>SQL</li>
-					<li>LDAP</li>
-					<li>XML</li>
-					<li>Generelt injection i forskjellige språk/markup</li>
+					<li>Injection av kode i forskjellige kontekster</li>
+					<li>SQL, LDAP, XML</li>
+					<li>OS kommandoer, XPath</li>
+					<li>Vi må alltid holde data adskilt fra kommandotegn</li>
+					<li>Fortsatt på toppen, mye grunnet sine mange angrepsvinkler</li>
 					<li><a href="http://localhost:3000/users" targe="_blank">DEMO</a></li>
 				</ul>
+				<pre class="prettyprint">
+sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
+				</pre>
 			</article>
 		</slide>
 
@@ -266,12 +270,21 @@ URL: https://code.google.com/p/io-2012-slides
 		</slide>
 
 		<slide>
+			<aside class="note">
+				<section>
+					<ul>
+						<li>http://www.datasikkerhetsboka.no/blogg/2017/02/02/ae-ha-itj-gjort-no-galt/</li>
+					</ul>
+				</section>
+			</aside>
 			<hgroup>
 				<h2>A10 - Underprotected APIs</h2>
 			</hgroup>
 			<article>
 				<ul>
-					<li></li>
+					<li>Veldig utbredt med enkle api som f.eks. server apper</li>
+					<li>Disse får ikke alltid samme fokus på sikkerhet som tradisjonelle web apps</li>
+					<li>Rema 1000 "Æ"</li>
 				</ul>
 			</article>
 		</slide>
