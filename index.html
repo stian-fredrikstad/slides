@@ -46,6 +46,20 @@ URL: https://code.google.com/p/io-2012-slides
 
 		<slide>
 			<hgroup>
+				<h2>OWASP Top 10</h2>
+			</hgroup>
+			<article>
+				<ul>
+					<li>Første kom i 2003</li>
+					<li>Punktene lages basert på data fra et utvalg industrier og teknologier</li>
+				</ul>
+				<img src="images/distribution_lang.png" width=600 class="reflect"/>
+				<footer class="source">https://nvisium.com/blog/2017/04/18/musings-on-the-owasp-top-10-2017-rc1/image_4.png</footer>
+			</article>
+		</slide>
+
+		<slide>
+			<hgroup>
 				<h2>OWASP Top 10 - 2013</h2>
 			</hgroup>
 			<article>
@@ -124,10 +138,9 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 			</hgroup>
 			<article>
 				<ul>
-					<li>Passord i klartekst (lagring og overføring)</li>
-					<li>Session fixation</li>
+					<li>Passord i klartekst, både ved lagring og overføring</li>
+					<li>Session fixation (jsessionid=random)</li>
 					<li>Lang eller manglende timeout på sessions</li>
-					<li><a href="http://localhost:3000/session/login">DEMO</a></li>
 				</ul>
 			</article>
 		</slide>
@@ -151,6 +164,8 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 				</ul>
 				<br />
 				<ul>
+					<li>Escape alt i riktig kontekst, håndteres vanligvis av respektive rammeverk</li>
+					<li>Ta i bruk CSP for et ekstra nivå av sikkerhetsnett</li>
 					<li>X-XSS-Protection - Vanligvis default satt, hindrer bl.a. noe reflected XSS</li>
 				</ul>
 			</article>
@@ -175,6 +190,7 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 					<li>Fuzzy sikkerhet</li>
 					<li>Hvis en angriper vet referansen til objektet, så kan han besøke siden uten autentisering</li>
 					<li>Skjedde nylig med fakturahotell og EVRY som ble indeksert av Bing</li>
+					<li>Bruk indirekte referanser i stedet for direkte referanser hvis mulig</li>
 					<li><a href="http://localhost:3000/users/3">DEMO</a></li>
 				</ul>
 			</article>
@@ -195,7 +211,10 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 				<ul>
 					<li>Default passord</li>
 					<li>Feilhåndtering med stacktrace</li>
-					<li>Utdatert rammeverk/plugins med kjente (og ukjente) sårbarheter</li>
+					<li>Rammeverk med automatisk admin grensesnitt</li>
+					<li>Applikasjon i debug mode</li>
+					<li>Feilkonfigurert lastbalanserer/webserver etc.</li>
+					<li>Database åpen mot nettet, og gjerne uten passord</li>
 					<li><a href="http://localhost:3000/foo">DEMO</a></li>
 				</ul>
 			</article>
@@ -214,6 +233,7 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 			</hgroup>
 			<article>
 				<ul>
+					<li>Bruker ikke TLS (for sensitive data)</li>
 					<li>Data blir eksponert ukrypert</li>
 					<li>Sensitive data blir lagret uten/utdatert kryptering</li>
 					<li>Api som er for verbost</li>
@@ -231,6 +251,8 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 					<li>Ny kategori av året</li>
 					<li>Diskutabel pga. knytning mot kommersielle aktører</li>
 					<li>Men høyst reell, mange applikasjoner blir angrepet daglig av automatiske (blinde) angrep</li>
+					<li>En av de første til å ta med devops i listen</li>
+					<li>Bør kunne detektere unormal trafikk, f.eks. automatisk sperre bruker/ip etter gjentatte påloggingsforsøk/sql exceptions etc</li>
 				</ul>
 			</article>
 		</slide>
@@ -264,6 +286,7 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 					<li>Bruker sårbare plugins eller rammeverk</li>
 					<li>Kan minske risikoen ved å bruke en dependency check</li>
 					<li>Et relativt stort problem for mange nettsider som "bare kjører"</li>
+					<li>Ta i bruk OWASP Dependency Check, retire.js, Brakeman etc.</li>
 					<li>Eks. Mossack Fonseca (Panama papers) skjedde pga. kjent sårbarhet i Drupal</li>
 				</ul>
 			</article>
@@ -282,8 +305,10 @@ sql = "SELECT name FROM users WHERE name like '%#{params[:q]}%'"
 			</hgroup>
 			<article>
 				<ul>
-					<li>Veldig utbredt med enkle api som f.eks. server apper</li>
+					<li>Veldig utbredt med enkle api som f.eks. server mobilapper,iot devices etc.</li>
 					<li>Disse får ikke alltid samme fokus på sikkerhet som tradisjonelle web apps</li>
+					<li>Lett å overse mange av de andre punktene ettersom man ikke er "koblet til web"</li>
+					<li>Kan fort ende opp med passord lagret i appen, manglende escape av input som fører til sql injection eller andre ting som er nevnt i ovenstående punkter</li>
 					<li>Rema 1000 "Æ"</li>
 				</ul>
 			</article>
